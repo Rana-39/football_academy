@@ -73,6 +73,19 @@ WSGI_APPLICATION = 'footballAcademy.wsgi.application'
 
 LOGIN_REDIRECT_URL = '/accounts/profile/'
 
+LOGIN_REDIRECT_URL = 'profile'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# settings.py
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    'accounts/static',
+]
+
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

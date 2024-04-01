@@ -1,8 +1,14 @@
+# models.py
+
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
-
 class CustomUser(AbstractUser):
+    ROLES = (
+        ('player', 'Player'),
+        ('coach', 'Coach'),
+    )
+    role = models.CharField(max_length=10, choices=ROLES, default='player')
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     bio = models.TextField(blank=True)

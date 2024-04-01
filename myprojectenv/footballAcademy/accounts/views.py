@@ -5,10 +5,12 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .forms import SignUpForm
 from .models import CustomUser
+from django.contrib.auth.decorators import login_required
+
 
 class SignUpView(CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy('profile')  # Redirect to profile page after successful signup
+    success_url = reverse_lazy('login')  # Redirect to profile page after successful signup
     template_name = 'registration/signup.html'
 
     def form_valid(self, form):
@@ -29,7 +31,7 @@ def profile(request):
     return render(request, 'accounts/profile.html', context)
 
 def listOfPlayers(request):
-    players = CustomUser.objects.exclude(is_staff=True)
-    coaches = CustomUser.objects.filter(is_staff=True)
+    players = CustomUser.objects.filter(role='player')
+    coaches = CustomUser.objects.filter(role='coach')
     context = {'players': players, 'coaches': coaches}
     return render(request, 'accounts/listOfPlayers.html', context)
