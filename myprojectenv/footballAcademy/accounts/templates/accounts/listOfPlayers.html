@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players and Coaches</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'path/to/your/css/file.css' %}">
+</head>
+<body>
+    <h1>Players and Coaches</h1>
+    
+    <h2>Players</h2>
+    <ul>
+        {% for player in players %}
+        <li>{{ player.username }} - Email: {{ player.email }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Coaches</h2>
+    <ul>
+        {% for coach in coaches %}
+        <li>{{ coach.username }} - Email: {{ coach.email }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

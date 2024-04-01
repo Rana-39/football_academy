@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'footballApp',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'footballAcademy.wsgi.application'
+
+LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 
 # Database
