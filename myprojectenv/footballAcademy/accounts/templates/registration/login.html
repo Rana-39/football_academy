@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <title>
-
-    </title>
-    <body>
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Login</button>
-        </form>
-    </body>
+{% load static %}
+<html lang="ar" dir="rtl">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/logInStyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="login__field">
+                        <label for="id_username" class="login__label">اسم المستخدم:</label>
+                        <i class="login__icon fas fa-user"></i>
+                        {{ form.username }}
+                    </div>
+                    <div class="login__field">
+                        <label for="id_password" class="login__label">كلمة المرور:</label>
+                        <i class="login__icon fas fa-lock"></i>
+                        {{ form.password }}
+                    </div>
+                    <button type="submit" class="button login__submit">
+                        <span class="button__text">تسجيل الدخول</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"><img class="img" src="{% static 'logo.png' %}"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+</body>
 </html>
