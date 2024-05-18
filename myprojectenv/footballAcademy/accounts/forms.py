@@ -1,3 +1,4 @@
+# forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
@@ -9,4 +10,12 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password1', 'password2','date_of_birth', 'role', 'bio', 'academy_code']
+        fields = ['username', 'email', 'password1', 'password2', 'date_of_birth', 'role', 'bio', 'academy_code']
+
+class UpdateBioForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['bio', 'profile_picture']
+        widgets = {
+            'bio': forms.Textarea(attrs={'cols': 80, 'rows': 5}),
+        }

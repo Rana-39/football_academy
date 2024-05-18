@@ -1,21 +1,18 @@
+# views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from .forms import SignUpForm
+from .forms import SignUpForm, UpdateBioForm
 from .models import CustomUser
-from django.contrib.auth.decorators import login_required
-
 
 class SignUpView(CreateView):
     form_class = SignUpForm
-    success_url = reverse_lazy('login')  # Redirect to profile page after successful signup
+    success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
     def form_valid(self, form):
         academy_code = form.cleaned_data['academy_code']
-        # Check if the academy code matches the valid code for the academy
         if academy_code == 'LadersGood':
             return super().form_valid(form)
         else:
@@ -35,3 +32,14 @@ def listOfPlayers(request):
     coaches = CustomUser.objects.filter(role='coach')
     context = {'players': players, 'coaches': coaches}
     return render(request, 'accounts/listOfPlayers.html', context)
+
+@login_required
+def update_bio(request):
+    if request.method == 'POST':
+        form = UpdateBioForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Adjust the redirect to the appropriate profile view
+    else:
+        form = UpdateBioForm(instance=request.user)
+    return render(request, 'accounts/update_bio.html', {'form': form})

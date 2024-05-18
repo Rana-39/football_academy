@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'path/to/your/css/file.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signUpStyle.css' %}">
     <title>Sign Up</title>
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
-    {% if not user.is_authenticated %}
-    <a href="{% url 'login' %}" class="btn btn-primary">Sign In</a>
-    {% endif %}
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="id_username">اسم االمستخدم: </label>
+                        <!-- {{ form.username }} -->
+                        <input class="signUp__field"  type="{{form.username}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">البريد الألكتروني:</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">كلمة المرور:</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">تأكيد كلمة المرور:</label>
+                        {{ form.password2 }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">تاريخ الميلاد:</label>
+                        {{ form.date_of_birth }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">يرجى اختيار مدرب او متدرب:</label>
+                        {{ form.role }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">مساحة شخصية:</label>
+                        {{ form.bio }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">رمز الاكاديمية (يعطى من قبل مسؤول التسجيل):</label>
+                        {{ form.academy_code }}
+                    </div>
+                    <!-- Other form fields -->
+                    <button type="submit">التسجيل</button>
+                </form>
+                <a href="{% url 'login' %}" class="btn btn-primary">اذا كنت تملك حساب, اضغط هنا</a>
+            <!-- </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"><img class="img" src="{% static 'logo.png' %}"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div> -->
+    </div>
 </body>
 </html>

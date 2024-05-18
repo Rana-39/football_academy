@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحديث الملف الشخصي</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #3d3c3c;
+            color: aliceblue;
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea, input[type="file"] {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #f59e1b;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="">الصفحة الرئيسية</a>
+        <a href="{% url 'listOfPlayers' %}">اللاعبين والمدربين</a>
+        <a href="#">اخبار الاكاديمية</a>
+        <a href="{% url 'logout' %}">تسجيل خروج</a>
+    </div>  
+    <h1>تحديث الملف الشخصي</h1>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="تحديث">
+        </form>
+    </div>
+</body>
+</html>
