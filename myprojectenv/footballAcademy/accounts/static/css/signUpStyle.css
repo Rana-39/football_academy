@@ -37,6 +37,46 @@ body {
 	text-align: center;
 }
 
+.form-group{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+h1{
+	margin-top: 20px;
+	color: #000000;
+}
+
+button{
+	color: white;
+	background-color: #f59e1b;
+	border: solid;
+	border-width: 1px;
+	border-radius: 4px;
+	text-align: center;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.button-link {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	background-color: #f59e1b;
+	border: solid;
+	border-width: 1px;
+	border-radius: 4px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 20;
+}
+.button-link:hover {
+	background-color: #000000;
+}
 /* .screen__background {		
 	position: absolute;
 	top: 0;

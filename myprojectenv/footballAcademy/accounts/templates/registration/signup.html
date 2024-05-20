@@ -11,11 +11,12 @@
     <div class="container">
         <div class="screen">
             <div class="screen__content">
+                <h1>التسجيل</h1>
                 <form method="post">
                     <div class="form-group">
                         <label for="id_username">اسم االمستخدم: </label>
                         <!-- {{ form.username }} -->
-                        <input class="signUp__field"  type="{{form.username}}">
+                        {{form.username}}
                     </div>
                     <div class="form-group">
                         <label for="id_email">البريد الألكتروني:</label>
@@ -48,7 +49,7 @@
                     <!-- Other form fields -->
                     <button type="submit">التسجيل</button>
                 </form>
-                <a href="{% url 'login' %}" class="btn btn-primary">اذا كنت تملك حساب, اضغط هنا</a>
+                <a class="button-link" href="{% url 'login' %}" class="btn btn-primary">اذا كنت تملك حساب, اضغط هنا</a>
             <!-- </div>
             <div class="screen__background">
                 <span class="screen__background__shape screen__background__shape4"><img class="img" src="{% static 'logo.png' %}"></span>
