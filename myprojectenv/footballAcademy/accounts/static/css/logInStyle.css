@@ -10,6 +10,7 @@
 
 body {
 	background: linear-gradient(90deg, #d4b38c, #d68a33);		
+	align-items: center;
 }
 
 .container {
@@ -189,4 +190,21 @@ body {
 
 .social-login__icon:hover {
 	transform: scale(1.5);	
+}
+.button-link {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	background-color: #f59e1b;
+	border: solid;
+	border-width: 1px;
+	border-radius: 4px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 20;
+}
+.button-link:hover {
+	background-color: #000000;
 }

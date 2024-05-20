@@ -13,10 +13,19 @@
             <div class="screen__content">
                 <h1>التسجيل</h1>
                 <form method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="id_username">اسم االمستخدم: </label>
-                        <!-- {{ form.username }} -->
                         {{form.username}}
+                        {{ form.fieldname.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_first_name">الاسم الاول:</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_last_name">الاسم الاخير:</label>
+                        {{ form.last_name }}
                     </div>
                     <div class="form-group">
                         <label for="id_email">البريد الألكتروني:</label>
@@ -50,14 +59,9 @@
                     <button type="submit">التسجيل</button>
                 </form>
                 <a class="button-link" href="{% url 'login' %}" class="btn btn-primary">اذا كنت تملك حساب, اضغط هنا</a>
-            <!-- </div>
-            <div class="screen__background">
-                <span class="screen__background__shape screen__background__shape4"><img class="img" src="{% static 'logo.png' %}"></span>
-                <span class="screen__background__shape screen__background__shape3"></span>		
-                <span class="screen__background__shape screen__background__shape2"></span>
-                <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
-        </div> -->
+                <a class="button-link" href="https://snapchat.com/t/cneiMgsz" class="btn btn-primary">snapchat</a>
+                <a class="button-link" href="https://www.tiktok.com/@leaders_club10?_t=8mW4ErWBzhg&_r=1" class="btn btn-primary">Tiktok</a>
+
     </div>
 </body>
 </html>
